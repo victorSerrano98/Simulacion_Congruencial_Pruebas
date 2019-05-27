@@ -44,22 +44,26 @@ public class CongruencialMixto {
 
         DecimalFormat df = new DecimalFormat("0.00000");
 
-        double n_uniformes = 0.00;
-        ArrayList<Double> numeros = new ArrayList<>();
+        double numerosU = 0.00;
+        ArrayList<Double> n = new ArrayList<>();
 
         System.out.println("n" + "\t\t" + "X" + "\t\t" + "(ax+c)/m" + "\t\t" + "X" + "\t\t" + "Numeros Uniformes");
         for (int i = 0; i < m; i++) {
             int ax = (int) ((a * aux + c) / m);
-            n_uniformes = (double) ax / m;
+            numerosU = (double)((a * aux + c) % m) / m;
             System.out.println("" + i + "\t\t" + aux + "\t\t" + ax + "+" + (a * aux + c) % m + "/" + m + "\t\t" + (a * aux + c) % m + "\t\t" + ((a * aux + c) % m) + "/" + m);
+            n.add(numerosU);
             aux = (a * aux + c) % m;
             if (x == aux) {
                 break;
             }
-            numeros.add(n_uniformes);
         }
-        Pruebas.Promedio(numeros);
-        Pruebas.Frecuencia(numeros);
+        for (int i = 0; i < n.size(); i++) {
+            System.out.println(n+"**");
+        }
+        
+        Pruebas.Promedio(n);
+        Pruebas.Frecuencia(n);
 
     }
 

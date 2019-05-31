@@ -61,8 +61,8 @@ public class CongruencialMultiplicativo {
                 modulo = (int) Math.pow(2, d);
                 semilla = (int)primo_Cercano(modulo);
                 
-                t = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese t","a = (8*t)+3", JOptionPane.QUESTION_MESSAGE));
-                int a =(int)(8*t)+3;
+                t = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese t","a = (8*t)-3", JOptionPane.QUESTION_MESSAGE));
+                int a =(int)(8*t)-3;
                 aux = modulo / 4;
                 System.out.printf("n" + "\t\t" + "Xn" + "\t\t" + "Numeros Uniformes" + " \n");
 

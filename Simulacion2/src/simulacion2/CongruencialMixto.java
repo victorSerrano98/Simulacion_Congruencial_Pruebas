@@ -42,8 +42,6 @@ public class CongruencialMixto {
         JOptionPane.showMessageDialog(null, "E l valor de c es : " + c);
         double aux = x;
 
-        DecimalFormat df = new DecimalFormat("0.00000");
-
         double numerosU = 0.00;
         ArrayList<Double> n = new ArrayList<>();
 
@@ -58,12 +56,10 @@ public class CongruencialMixto {
                 break;
             }
         }
-        for (int i = 0; i < n.size(); i++) {
-            System.out.println(n+"**");
-        }
         
         Pruebas.Promedio(n);
         Pruebas.Frecuencia(n);
+        Pruebas.Series(n);
 
     }
 

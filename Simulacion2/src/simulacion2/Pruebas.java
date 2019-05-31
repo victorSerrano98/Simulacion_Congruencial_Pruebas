@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author VICTOR SERRANO
  */
 public class Pruebas {
+
     public static void Promedio(ArrayList<Double> n) {
         System.out.println("\n*****Prueba de Promedios*****");
         double suma = 0.00;
@@ -20,10 +21,10 @@ public class Pruebas {
             suma = suma + n.get(i);
         }
         double media = suma / cantidad;
-        double Z = ((media - 0.5) * Math.sqrt(cantidad)) / Math.sqrt(0.083333); 
+        double Z = ((media - 0.5) * Math.sqrt(cantidad)) / Math.sqrt(0.083333);
         System.out.println("Media:  " + media);
         System.out.println("Zo: " + Z);
-        if (Math.abs(Z) < 1.96) { 
+        if (Math.abs(Z) < 1.96) {
             System.out.println("NO se rechaza la hipotesis de que los numeros pseudoaleatorios tienen un nivel esperado de aceptacion de 0.5\n");
         } else {
             System.out.println("Se rechaza  la hipotesis de que los numeros pseudoaleatorios tienen un nivel esperado de aceptacion de 0.5\n");
@@ -63,6 +64,53 @@ public class Pruebas {
             System.out.println("NO se rechaza la hipotesis de que los numeros pseudoaleatorios provienen de una distribucion uniforme");
         } else {
             System.out.println("SE rechaza la hipotesis de que los numeros pseudoaleatorios provienen de una distribucion uniforme");
+        }
+    }
+
+    public static void Series(ArrayList<Double> n) {
+        System.out.println("\n*****Prueba de Series*****");
+        double x[] = new double[n.size() - 1];
+        double y[] = new double[n.size() - 1];
+        int aux = 0, aux2 = 0;
+        for (int i = 0; i < (n.size()); i++) {
+            if (i != 0) {
+                y[aux] = n.get(i);
+                aux++;
+            }
+            if (i != n.size() - 1) {
+                x[aux2] = n.get(i);
+                aux2++;
+            }
+        }
+
+        int subintervalos = 25;
+        double cont[] = new double[subintervalos];
+        int x1 = 0;
+        int xx = 0;
+        for (double i = 0; i < 5; i++) {
+            for (double k = 0; k < 5; k++) {
+                for (int j = 0; j < x.length; j++) {
+
+                    if (x[j] < ((i + 1) / 5) && y[j] < ((k + 1) / 5) && x[j] >= (i / 5) && y[j] >= (k / 5)) {
+                        x1++;
+                    }
+                }
+
+                cont[xx] = x1;
+                xx++;
+                x1 = 0;
+            }
+        }
+        double suma = 0;
+        for (int i = 0; i < cont.length; i++) {
+               suma = suma +Math.pow((cont[i] - ((n.size() - 1.0) / 25.0)),2);
+            
+        }
+        if (suma < 36.41) {
+            System.out.println("Suma: "+suma);
+            System.out.println("NO se rechaza la hipotesis de uniformidad de numeros pseudo aleatorios");
+        } else {
+            System.out.println("SE rechaza la hipotesis de uniformidad de numeros pseudo aleatorios");
         }
     }
 }

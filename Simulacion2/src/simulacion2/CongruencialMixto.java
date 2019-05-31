@@ -48,7 +48,7 @@ public class CongruencialMixto {
         System.out.println("n" + "\t\t" + "X" + "\t\t" + "(ax+c)/m" + "\t\t" + "X" + "\t\t" + "Numeros Uniformes");
         for (int i = 0; i < m; i++) {
             int ax = (int) ((a * aux + c) / m);
-            numerosU = (double)((a * aux + c) % m) / m;
+            numerosU = (double) ((a * aux + c) % m) / m;
             System.out.println("" + i + "\t\t" + aux + "\t\t" + ax + "+" + (a * aux + c) % m + "/" + m + "\t\t" + (a * aux + c) % m + "\t\t" + ((a * aux + c) % m) + "/" + m);
             n.add(numerosU);
             aux = (a * aux + c) % m;
@@ -56,7 +56,7 @@ public class CongruencialMixto {
                 break;
             }
         }
-        
+
         Pruebas.Promedio(n);
         Pruebas.Frecuencia(n);
         Pruebas.Series(n);

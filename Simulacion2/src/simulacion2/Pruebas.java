@@ -71,7 +71,7 @@ public class Pruebas {
         System.out.println("\n*****Prueba de Series*****");
         double x[] = new double[n.size() - 1];
         double y[] = new double[n.size() - 1];
-        int aux = 0, aux2 = 0;
+        int aux = 0, aux2 = 0;  
         for (int i = 0; i < (n.size()); i++) {
             if (i != 0) {
                 y[aux] = n.get(i);
@@ -82,7 +82,6 @@ public class Pruebas {
                 aux2++;
             }
         }
-
         int subintervalos = 25;
         double cont[] = new double[subintervalos];
         int x1 = 0;
@@ -90,12 +89,10 @@ public class Pruebas {
         for (double i = 0; i < 5; i++) {
             for (double k = 0; k < 5; k++) {
                 for (int j = 0; j < x.length; j++) {
-
                     if (x[j] < ((i + 1) / 5) && y[j] < ((k + 1) / 5) && x[j] >= (i / 5) && y[j] >= (k / 5)) {
                         x1++;
                     }
                 }
-
                 cont[xx] = x1;
                 xx++;
                 x1 = 0;
@@ -103,11 +100,11 @@ public class Pruebas {
         }
         double suma = 0;
         for (int i = 0; i < cont.length; i++) {
-               suma = suma +Math.pow((cont[i] - ((n.size() - 1.0) / 25.0)),2);
-            
+            suma = suma + Math.pow((cont[i] - ((n.size() - 1.0) / 25.0)), 2);
         }
+        double resultado = suma * (cont.length / (double) (n.size() - 1));
+        System.out.println("Suma: " + suma + "\nResultado: " + resultado);
         if (suma < 36.41) {
-            System.out.println("Suma: "+suma);
             System.out.println("NO se rechaza la hipotesis de uniformidad de numeros pseudo aleatorios");
         } else {
             System.out.println("SE rechaza la hipotesis de uniformidad de numeros pseudo aleatorios");

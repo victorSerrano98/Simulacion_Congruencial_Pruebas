@@ -61,6 +61,10 @@ public class CongruencialMixto {
         Pruebas.Frecuencia(n);
         Pruebas.Series(n);
 
+        for (int i = 0; i < n.size(); i++) {
+            System.out.println("***" + n.get(i) + "***");
+        }
+        Pruebas.Corridas();
     }
 
     public static double primo_Cercano(double n) {
